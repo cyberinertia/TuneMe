@@ -2,6 +2,8 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let db = require('./models');
 
+// let router = express.Router();
+
 let controllers = require('./controllers');
 
 // generate a new express app
@@ -23,17 +25,16 @@ app.get('/show', function (req, res) {
 });
 
 app.get('/api', controllers.api.index);
+
 app.get('/api/albums', controllers.albums.index);
 app.get('/api/albums/:id', controllers.albums.show);
-app.get('/api/albums/:id/songs', controllers.albumsSongs.index);
-
 app.post('/api/albums', controllers.albums.create);
-app.post('/api/albums/:id/songs', controllers.albumsSongs.create);
-
 app.put('/api/albums/:id', controllers.albums.update);
-app.put('/api/albums/:id/songs/:id', controllers.albumsSongs.update);
-
 app.delete('api/albums/:id', controllers.albums.destroy);
+
+app.get('/api/albums/:id/songs', controllers.albumsSongs.index);
+app.post('/api/albums/:id/songs', controllers.albumsSongs.create);
+app.put('/api/albums/:id/songs/:id', controllers.albumsSongs.update);
 app.delete('api/albums/:id/songs/:id', controllers.albumsSongs.destroy);
 
 app.listen(process.env.PORT || 3000, function() {
