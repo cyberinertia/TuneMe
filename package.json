@@ -1,0 +1,17 @@
+{
+  "name": "tuneme",
+  "version": "1.0.0",
+  "description": "A Web app to save your favorite tunes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sherif",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9"
+  }
+}
